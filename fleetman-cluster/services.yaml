@@ -29,20 +29,19 @@ spec:
       port: 8080
   type: ClusterIP
 
----
 
 # Position Simulator
-apiVersion: v1
-kind: Service
-metadata:
-  name: position-simulator
-spec:
-  selector:
-    app: position-simulator
-  ports:
-    - name: http
-      port: 8080
-  type: ClusterIP
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: position-simulator
+#spec:
+#  selector:
+#    app: position-simulator
+#  ports:
+#    - name: http
+#      port: 8080
+#  type: ClusterIP
 
 ---
 
@@ -50,14 +49,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: position-tracker
+  name: fleetman-position-tracker
 spec:
   selector:
     app: position-tracker
   ports:
     - name: http
       port: 8080
-  type: ClusterIP
+      nodePort: 30011
+  type: NodePort
 
 ---
 
