@@ -58,6 +58,9 @@ spec:
       containers:
         - name: position-simulation
           image: richardchesterwood/k8s-fleetman-position-simulator:release1
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: local-microservice
 
 ---
 
