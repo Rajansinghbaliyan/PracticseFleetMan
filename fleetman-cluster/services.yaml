@@ -1,0 +1,76 @@
+# Active Mq
+apiVersion: v1
+kind: Service
+metadata:
+  name: activemq
+spec:
+  selector:
+    app: activemq
+  ports:
+    - name: http
+      port: 8161
+      nodePort: 30010
+  type: NodePort
+
+---
+
+# Api-Gateway
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway
+spec:
+  selector:
+    app: api-gateway
+  ports:
+    - name: http
+      port: 8080
+  type: ClusterIP
+
+---
+
+# Position Simulator
+apiVersion: v1
+kind: Service
+metadata:
+  name: position-simulator
+spec:
+  selector:
+    app: position-simulator
+  ports:
+    - name: http
+      port: 8080
+  type: ClusterIP
+
+---
+
+# Position Tracking
+apiVersion: v1
+kind: Service
+metadata:
+  name: position-tracker
+spec:
+  selector:
+    app: position-tracker
+  ports:
+    - name: http
+      port: 8080
+  type: ClusterIP
+
+---
+
+# Webapp
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+spec:
+  selector:
+    app: webapp-angular
+  ports:
+    - name: http
+      port: 80
+      nodePort: 30080
+  type: NodePort
+
+
