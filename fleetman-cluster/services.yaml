@@ -27,7 +27,8 @@ spec:
   ports:
     - name: http
       port: 8080
-  type: ClusterIP
+      nodePort: 30012
+  type: NodePort
 
 
 # Position Simulator
@@ -74,5 +75,20 @@ spec:
       port: 80
       nodePort: 30080
   type: NodePort
+
+---
+
+#  History Mongo Database
+apiVersion: v1
+kind: Service
+metadata:
+  name: history-database
+spec:
+  selector:
+    app: history-database
+  ports:
+    - name: http
+      port: 27017
+  type: ClusterIP
 
 
