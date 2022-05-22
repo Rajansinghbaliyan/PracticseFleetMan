@@ -129,7 +129,15 @@ spec:
     spec:
       containers:
         - name: mongo
-          image: mongo
+          image: mongo:3.6.5-jessie
+          volumeMounts:
+            - mountPath: /data/db
+              name: mongo-persistence-storage
+      volumes:
+        - name: mongo-persistence-storage
+          hostPath:
+            path: /home/rajan/Development/Mongo/Persistence
+            type: DirectoryOrCreate
 
 
 

@@ -82,7 +82,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: history-database
+  name: fleetman-mongodb
 spec:
   selector:
     app: history-database
