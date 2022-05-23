@@ -135,9 +135,8 @@ spec:
               name: mongo-persistence-storage
       volumes:
         - name: mongo-persistence-storage
-          hostPath:
-            path: /home/rajan/Development/Mongo/Persistence
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: mongo-pvc
 
 
 
