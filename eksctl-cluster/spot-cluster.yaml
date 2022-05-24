@@ -3,7 +3,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: spot-cluster
+  name: spot-fleetman
   region: ap-south-1
 
 managedNodeGroups:
