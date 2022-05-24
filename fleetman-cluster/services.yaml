@@ -9,10 +9,9 @@ spec:
   ports:
     - name: http
       port: 8161
-      nodePort: 30010
     - name: tcp
       port: 61616
-  type: NodePort
+  type: ClusterIP
 
 ---
 
@@ -27,8 +26,7 @@ spec:
   ports:
     - name: http
       port: 8080
-      nodePort: 30012
-  type: NodePort
+  type: ClusterIP
 
 
 # Position Simulator
@@ -57,8 +55,7 @@ spec:
   ports:
     - name: http
       port: 8080
-      nodePort: 30011
-  type: NodePort
+  type: ClusterIP
 
 ---
 
@@ -73,8 +70,7 @@ spec:
   ports:
     - name: http
       port: 80
-      nodePort: 30080
-  type: NodePort
+  type: LoadBalancer
 
 ---
 
