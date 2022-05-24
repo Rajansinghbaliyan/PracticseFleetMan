@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: activemq
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: activemq
@@ -25,7 +25,7 @@ kind: Deployment
 metadata:
   name: api-gateway
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: api-gateway
@@ -73,7 +73,7 @@ kind: Deployment
 metadata:
   name: position-tracker
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: position-tracker
@@ -97,6 +97,7 @@ kind: Deployment
 metadata:
   name: webapp
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: webapp-angular
@@ -119,6 +120,7 @@ kind: Deployment
 metadata:
   name: history-database
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: history-database
