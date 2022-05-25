@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: activemq
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: activemq
@@ -97,7 +97,7 @@ kind: Deployment
 metadata:
   name: webapp
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: webapp-angular
