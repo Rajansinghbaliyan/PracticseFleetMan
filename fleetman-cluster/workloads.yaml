@@ -25,7 +25,7 @@ kind: Deployment
 metadata:
   name: api-gateway
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: api-gateway
@@ -73,7 +73,7 @@ kind: Deployment
 metadata:
   name: position-tracker
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: position-tracker
