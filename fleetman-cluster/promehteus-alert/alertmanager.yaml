@@ -1,5 +1,5 @@
 global:
-  slack_api_url: 'https://hooks.slack.com/services/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'
+  slack_api_url: 'https://hooks.slack.com/services/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'
 route:
   group_by: ['alertname']
   group_wait: 5s
@@ -10,7 +10,7 @@ route:
 receivers:
 - name: 'slack'
   slack_configs:
-  - channel: '#clusteralerts'
+  - channel: '#alerts'
     icon_emoji: ':bell:'
     send_resolved: true
     text: "<!channel> \nsummary: {{ .CommonAnnotations.summary }}\ndescription: {{ .CommonAnnotations.description }}\nmessage: {{ .CommonAnnotations.message }}"
