@@ -1,5 +1,5 @@
 global:
-  slack_api_url: 'https://hooks.slack.com/services/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'
+  slack_api_url: 'https://hooks.slack.com/services/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'
 route:
   group_by: ['alertname']
   group_wait: 5s
