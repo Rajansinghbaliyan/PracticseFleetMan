@@ -7,37 +7,14 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
-  storageClassName: local-mongo
+      storage: 4Gi
+  storageClassName: aws-storage
 ---
 
-apiVersion: v1
-kind: PersistentVolume
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
 metadata:
-  name: local-host
-spec:
-  persistentVolumeReclaimPolicy: Delete
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-    storage: 10Gi
-  hostPath:
-    path: "/home/rajan/Development/Mongo/PersistenceNew"
-    type: DirectoryOrCreate
-  storageClassName: my-local-storage
-
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: local-mongo
-spec:
-  persistentVolumeReclaimPolicy: Delete
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-    storage: 2Gi
-  hostPath:
-    path: "/home/rajan/Development/Mongo/PersistenceNew2"
-    type: DirectoryOrCreate
-  storageClassName: local-mongo
+  name: aws-storage
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2

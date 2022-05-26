@@ -247,11 +247,11 @@ spec:
   - metadata:
       name: elasticsearch-logging
     spec:
-      storageClassName: my-local-storage
+      storageClassName: aws-storage
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 1Gi
+          storage: 5Gi
 ---
 
 #
