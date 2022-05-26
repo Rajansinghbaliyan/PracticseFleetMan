@@ -7,14 +7,20 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 4Gi
-  storageClassName: aws-storage
+      storage: 1Gi
+  storageClassName: my-local-storage
 ---
 
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
+apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: aws-storage
-provisioner: kubernetes.io/aws-ebs
-parameters:
-  type: gp2
+  name: local-host
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 2Gi
+  hostPath:
+    path: "/home/rajan/Development/Mongo/PersistenceNew"
+    type: DirectoryOrCreate
+  storageClassName: my-local-storage

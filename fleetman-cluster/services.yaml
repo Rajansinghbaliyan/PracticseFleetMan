@@ -70,7 +70,8 @@ spec:
   ports:
     - name: http
       port: 80
-  type: LoadBalancer
+      nodePort: 30080
+  type: NodePort
 
 ---
 
