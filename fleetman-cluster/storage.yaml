@@ -8,7 +8,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: my-local-storage
+  storageClassName: local-mongo
 ---
 
 apiVersion: v1
@@ -24,3 +24,18 @@ spec:
     path: "/home/rajan/Development/Mongo/PersistenceNew"
     type: DirectoryOrCreate
   storageClassName: my-local-storage
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-mongo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 2Gi
+  hostPath:
+    path: "/home/rajan/Development/Mongo/PersistenceNew2"
+    type: DirectoryOrCreate
+  storageClassName: local-mongo
