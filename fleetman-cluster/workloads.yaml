@@ -15,14 +15,14 @@ spec:
     spec:
       containers:
         - name: activemq
-          image: richardchesterwood/k8s-fleetman-queue:release2
+          image: richardchesterwood/k8s-fleetman-queue:resources
           resources:
             requests:
               cpu: 200m
-              memory: 500Mi
+              memory: 50Mi
             limits:
               cpu: 300m
-              memory: 700Mi
+              memory: 70Mi
 
 
 ---
@@ -44,14 +44,14 @@ spec:
     spec:
       containers:
         - name: api-gateway
-          image: richardchesterwood/k8s-fleetman-api-gateway:release2
+          image: richardchesterwood/k8s-fleetman-api-gateway:resources
           resources:
             requests:
-              cpu: 200m
-              memory: 500Mi
+              cpu: 600m
+              memory: 50Mi
             limits:
-              cpu: 300m
-              memory: 700Mi
+              cpu: 900m
+              memory: 70Mi
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production-microservice
@@ -76,14 +76,14 @@ spec:
     spec:
       containers:
         - name: position-simulation
-          image: richardchesterwood/k8s-fleetman-position-simulator:release2
+          image: richardchesterwood/k8s-fleetman-position-simulator:resources
           resources:
             requests:
-              cpu: 200m
-              memory: 500Mi
+              cpu: 100m
+              memory: 50Mi
             limits:
-              cpu: 300m
-              memory: 700Mi
+              cpu: 200m
+              memory: 60Mi
 
 
           env:
@@ -109,14 +109,14 @@ spec:
     spec:
       containers:
         - name: position-tracker
-          image: richardchesterwood/k8s-fleetman-position-tracker:release3
+          image: richardchesterwood/k8s-fleetman-position-tracker:resources
           resources:
             requests:
               cpu: 200m
-              memory: 500Mi
+              memory: 50Mi
             limits:
               cpu: 300m
-              memory: 700Mi
+              memory: 60Mi
 
           env:
             - name: SPRING_PROFILES_ACTIVE
@@ -145,7 +145,7 @@ spec:
           resources:
             requests:
               cpu: 100m
-              memory: 200Mi
+              memory: 20Mi
             limits:
               cpu: 200m
               memory: 300Mi
@@ -178,11 +178,11 @@ spec:
               name: mongo-persistence-storage
           resources:
             requests:
-              memory: "100Mi"
-              cpu: "200m"
-            limits:
               memory: "300Mi"
-              cpu: "400m"
+              cpu: "300m"
+            limits:
+              memory: "500Mi"
+              cpu: "500m"
       volumes:
         - name: mongo-persistence-storage
           persistentVolumeClaim:
