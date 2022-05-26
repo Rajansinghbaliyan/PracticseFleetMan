@@ -20,9 +20,9 @@ spec:
             requests:
               cpu: 200m
               memory: 50Mi
-            limits:
-              cpu: 300m
-              memory: 70Mi
+#            limits:
+#              cpu: 300m
+#              memory: 70Mi
 
 
 ---
@@ -49,9 +49,9 @@ spec:
             requests:
               cpu: 600m
               memory: 50Mi
-            limits:
-              cpu: 900m
-              memory: 70Mi
+#            limits:
+#              cpu: 900m
+#              memory: 70Mi
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production-microservice
@@ -81,9 +81,9 @@ spec:
             requests:
               cpu: 100m
               memory: 50Mi
-            limits:
-              cpu: 200m
-              memory: 60Mi
+#            limits:
+#              cpu: 200m
+#              memory: 60Mi
 
 
           env:
@@ -114,9 +114,9 @@ spec:
             requests:
               cpu: 200m
               memory: 50Mi
-            limits:
-              cpu: 300m
-              memory: 60Mi
+#            limits:
+#              cpu: 300m
+#              memory: 60Mi
 
           env:
             - name: SPRING_PROFILES_ACTIVE
