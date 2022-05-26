@@ -16,6 +16,14 @@ spec:
       containers:
         - name: activemq
           image: richardchesterwood/k8s-fleetman-queue:release2
+          resources:
+            requests:
+              cpu: 100m
+              memory: 300Mi
+            limits:
+              cpu: 200m
+              memory: 500Mi
+
 
 ---
 
@@ -37,9 +45,17 @@ spec:
       containers:
         - name: api-gateway
           image: richardchesterwood/k8s-fleetman-api-gateway:release2
+          resources:
+            requests:
+              cpu: 100m
+              memory: 300Mi
+            limits:
+              cpu: 200m
+              memory: 500Mi
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production-microservice
+
 
 ---
 
@@ -61,6 +77,14 @@ spec:
       containers:
         - name: position-simulation
           image: richardchesterwood/k8s-fleetman-position-simulator:release2
+          resources:
+            requests:
+              cpu: 100m
+              memory: 300Mi
+            limits:
+              cpu: 200m
+              memory: 500Mi
+
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production-microservice
@@ -85,6 +109,14 @@ spec:
       containers:
         - name: position-tracker
           image: richardchesterwood/k8s-fleetman-position-tracker:release3
+          resources:
+            requests:
+              cpu: 100m
+              memory: 300Mi
+            limits:
+              cpu: 200m
+              memory: 500Mi
+
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production-microservice
@@ -109,6 +141,14 @@ spec:
       containers:
         - name: webapp
           image: richardchesterwood/k8s-fleetman-webapp-angular:release2
+          resources:
+            requests:
+              cpu: 100m
+              memory: 200Mi
+            limits:
+              cpu: 200m
+              memory: 300Mi
+
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production-microservice
