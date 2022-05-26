@@ -9,7 +9,14 @@ metadata:
 managedNodeGroups:
   - name: spot
     instanceTypes: ["t3a.medium"]
+    desiredCapacity: 3
+    minSize: 2
+    maxSize: 3
+    volumeSize: 10
     spot: true
+    ssh:
+      allow: true
+      publicKeyPath: /home/rajan/Development/Aws/bootstrap-ec2.pem
 
 
 #  # `instanceTypes` defaults to [`m5.large`]
