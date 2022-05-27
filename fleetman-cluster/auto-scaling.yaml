@@ -112,3 +112,13 @@ spec:
         target:
           type: Value
           value: 1k
+    - type: Pods
+      pods:
+        metric:
+          name: webapp_api_response_time_avg
+        targetAverageValue: "500"
+
+#      Pods
+#      pods:
+#        metricName: myapplication_api_response_time_avg
+#        targetAverageValue: "500"
