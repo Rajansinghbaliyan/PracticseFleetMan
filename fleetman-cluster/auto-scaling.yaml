@@ -84,7 +84,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: webapp
+    name: webapp-angular
   minReplicas: 1
   maxReplicas: 5
   metrics:
