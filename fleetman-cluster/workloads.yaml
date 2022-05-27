@@ -45,6 +45,12 @@ spec:
       containers:
         - name: api-gateway
           image: richardchesterwood/k8s-fleetman-api-gateway:resources
+          readinessProbe:
+            httpGet:
+              path: /history/City Truck
+              port: 8080
+            initialDelaySeconds: 120
+            periodSeconds: 10
           resources:
             requests:
               cpu: 60m
@@ -110,6 +116,12 @@ spec:
       containers:
         - name: position-tracker
           image: richardchesterwood/k8s-fleetman-position-tracker:resources
+          readinessProbe:
+            httpGet:
+              path: /history/City Truck
+              port: 8080
+            initialDelaySeconds: 120
+            periodSeconds: 10
           resources:
             requests:
               cpu: 60m
