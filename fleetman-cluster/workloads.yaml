@@ -61,6 +61,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: production-env
+          volumeMounts:
+            - mountPath: /etc/spring/properties
+              name: properties-file
+      volumes:
+        - name: properties-file
+          configMap:
+            name: production-config-file
 
 
 

@@ -5,3 +5,14 @@ metadata:
   namespace: default
 data:
   SPRING_PROFILES_ACTIVE: production-microservice
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: default
+  name: production-config-file
+data:
+  application.properties: |
+      SPRING_PROFIELS_ACTIVE=production-microservice
