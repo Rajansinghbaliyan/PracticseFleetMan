@@ -104,6 +104,8 @@ spec:
 #            - name: SPRING_PROFILES_ACTIVE
 #              value: production-microservice
           envFrom:
+            - secretRef:
+                name: aws-credentials
             - configMapRef:
                 name: production-env
 
