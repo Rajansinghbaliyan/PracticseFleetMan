@@ -47,7 +47,7 @@ spec:
           image: richardchesterwood/k8s-fleetman-api-gateway:resources
           readinessProbe:
             httpGet:
-              path: /history/City Truck
+              path: /
               port: 8080
             initialDelaySeconds: 60
             periodSeconds: 10
@@ -55,12 +55,13 @@ spec:
             requests:
               cpu: 60m
               memory: 300Mi
-#            limits:
-#              cpu: 900m
-#              memory: 70Mi
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: production-microservice
+            limits:
+              cpu: 900m
+              memory: 700Mi
+          envFrom:
+            - configMapRef:
+                name: production-env
+
 
 
 ---
@@ -92,9 +93,12 @@ spec:
 #              memory: 60Mi
 
 
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: production-microservice
+#          env:
+#            - name: SPRING_PROFILES_ACTIVE
+#              value: production-microservice
+          envFrom:
+            - configMapRef:
+                name: production-env
 
 ---
 
@@ -130,9 +134,10 @@ spec:
 #              cpu: 300m
 #              memory: 60Mi
 
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: production-microservice
+          envFrom:
+            - configMapRef:
+                name: production-env
+
 
 ---
 
@@ -162,9 +167,10 @@ spec:
               cpu: 200m
               memory: 300Mi
 
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: production-microservice
+          envFrom:
+            - configMapRef:
+                name: production-env
+
 
 ---
 
