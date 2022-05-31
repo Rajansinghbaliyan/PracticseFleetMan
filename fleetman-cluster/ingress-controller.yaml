@@ -4,12 +4,34 @@ metadata:
   name: ingress-controller
 spec:
   rules:
-    - http:
+    - host: "fleetman.com"
+      http:
         paths:
-          - path: /
-            backend:
+          - backend:
               service:
                 name: fleetman-webapp
                 port:
                   number: 80
-            pathType: Exact
+            pathType: Prefix
+            path: /
+    - host: "queue.fleetman.com"
+      http:
+        paths:
+          - backend:
+              service:
+                name: fleetman-queue
+                port:
+                  number: 8161
+            pathType: Prefix
+            path: /
+
+
+#    - http:
+#        paths:
+#            - path: /api/activemq
+#              backend:
+#                service:
+#                  name: fleetman-queue
+#                  port:
+#                    number: 8161
+#              pathType: Prefix
