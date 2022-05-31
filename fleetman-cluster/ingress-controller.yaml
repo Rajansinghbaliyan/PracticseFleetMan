@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-controller
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: fleetman-webapp
+                port:
+                  number: 80
+            pathType: Exact
