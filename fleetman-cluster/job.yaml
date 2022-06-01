@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-job
+spec: # Job
+  template:
+    spec: # Pod
+      containers:
+        - name: test-job
+          image: python:rc-alpine
+          command:
+            - "python"
+          args:
+            - "-c"
+            - "import time; print('starting'); time.sleep(30); print('done')"
+      restartPolicy: Never
+  backoffLimit: 2
